@@ -1,26 +1,21 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import Navbar from './cpnts/layout/Navbar'
+import Dash from './cpnts/dashboard/Dash'
+import Detail from './cpnts/projects/Detail'
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <BrowserRouter>
+        <div className="App">
+          <Navbar/>
+          <Switch>
+            <Route exact path='/' component={Dash}/>
+            <Route path='/project/:id' component={Detail}/>
+          </Switch>
+        </div>
+      </BrowserRouter>  
     );
   }
 }
