@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 
-class Si extends Component {
+class Su extends Component {
   state = {
     email: '',
-    password: ''
+    password: '',
+    firstName: '',
+    lastName: ''
   }
 
   handelSubmit = (e) => {
@@ -21,7 +23,7 @@ class Si extends Component {
     return (
       <div className="container">
         <form onSubmit={this.handelSubmit} className="white">
-          <h5 className="grey-text text-darken-3">회원정보</h5>
+          <h5 className="grey-text text-darken-3">회원가입</h5>
           <div className="input-field">
             <label htmlFor="email">이메일</label>
             <input type="email" id="email" onChange={this.handelChange}/>
@@ -31,7 +33,15 @@ class Si extends Component {
             <input type="password" id="password" onChange={this.handelChange}/>
           </div>
           <div className="input-field">
-            <button className="btn pink lighten-1 z-depth-0">로그인</button>
+            <label htmlFor="firstName">성</label>
+            <input type="text" id="firstName" onChange={this.handelChange}/>
+          </div>
+          <div className="input-field">
+            <label htmlFor="lastName">이름</label>
+            <input type="text" id="lastName" onChange={this.handelChange}/>
+          </div>
+          <div className="input-field">
+            <button className="btn pink lighten-1 z-depth-0">회원가입</button>
           </div>
         </form>
       </div>
@@ -40,5 +50,5 @@ class Si extends Component {
   }
 }
 
-export default Si
+export default Su
 
