@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import Noti from './Noti'
 import List from '../projects/List'
 import { connect } from 'react-redux'
+import { firestoreConnect } from 'react-redux-firebase'
+import { compose } from 'redux'
 
 class Dash extends Component {
   render() {
@@ -20,9 +22,15 @@ class Dash extends Component {
 }
 
 const mapStateToProps = (state) => {
+  console.log(state)
   return {
     projects: state.project.projects
   }
 }
 
-export default connect(mapStateToProps) (Dash)
+export default compose(
+  connect(mapStateToProps),
+  firestoreConnect([
+    {collection: 'projects'}
+  ])
+)(Dash)
