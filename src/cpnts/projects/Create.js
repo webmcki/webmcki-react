@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { createProject } from '../../store/actions/projectActions'
 
 class Create extends Component {
   state = {
@@ -8,7 +10,8 @@ class Create extends Component {
 
   handelSubmit = (e) => {
     e.preventDefault()
-    console.log(this.state)
+    //console.log(this.state)
+    this.props.createProject(this.state)
   }
 
   handelChange = (e) => {
@@ -24,7 +27,7 @@ class Create extends Component {
           <h5 className="grey-text text-darken-3">새프로젝트</h5>
           <div className="input-field">
             <label htmlFor="title">타이틀</label>
-            <input type="email" id="title" onChange={this.handelChange}/>
+            <input type="text" id="title" onChange={this.handelChange}/>
           </div>
           <div className="input-field">
             <label htmlFor="content">내용</label>
@@ -40,5 +43,11 @@ class Create extends Component {
   }
 }
 
-export default Create
+const mapDispatchToProps = (dispatch) => {
+  return {
+    createProject: (project) => dispatch(createProject(project))
+  }
+}
+
+export default connect(null, mapDispatchToProps) (Create)
 
