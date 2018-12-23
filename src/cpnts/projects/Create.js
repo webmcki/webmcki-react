@@ -21,17 +21,17 @@ class Create extends Component {
     return (
       <div className="container">
         <form onSubmit={this.handelSubmit} className="white">
-          <h5 className="grey-text text-darken-3">회원정보</h5>
+          <h5 className="grey-text text-darken-3">새프로젝트</h5>
           <div className="input-field">
-            <label htmlFor="email">이메일</label>
-            <input type="email" id="email" onChange={this.handelChange}/>
+            <label htmlFor="title">타이틀</label>
+            <input type="email" id="title" onChange={this.handelChange}/>
           </div>
           <div className="input-field">
-            <label htmlFor="password">패스워드</label>
-            <input type="password" id="password" onChange={this.handelChange}/>
+            <label htmlFor="content">내용</label>
+            <textarea id="content" cols="30" rows="10" className="materialize-textarea" onChange={this.handelChange}></textarea>
           </div>
           <div className="input-field">
-            <button className="btn pink lighten-1 z-depth-0">로그인</button>
+            <button className="btn pink lighten-1 z-depth-0">추가</button>
           </div>
         </form>
       </div>

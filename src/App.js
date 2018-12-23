@@ -5,6 +5,7 @@ import Dash from './cpnts/dashboard/Dash'
 import Detail from './cpnts/projects/Detail'
 import Si from './cpnts/auth/Si'
 import Su from './cpnts/auth/Su'
+import Create from './cpnts/projects/Create'
 
 class App extends Component {
   render() {
@@ -17,6 +18,7 @@ class App extends Component {
             <Route path='/project/:id' component={Detail}/>
             <Route path='/signin' component={Si}/>
             <Route path='/signup' component={Su}/>
+            <Route path='/create' component={Create}/>
           </Switch>
         </div>
       </BrowserRouter>  
