@@ -6,7 +6,4 @@ git remote set-url origin https://github.com/webmcki/webmcki-react.git
 yarn add redux react-redux
 yarn add redux-thunk    ==> for Async
 yarn add react-redux-firebase redux-firestore
-1. Do npm uninstall firebase
-2. npm cache clear
-3. npm i firebase@^4.8.0 --save
-timestampsInSnapshots: true 옵션 적용시 에러남
+버전에러나서 원본 package 참조 해서 인스톨
