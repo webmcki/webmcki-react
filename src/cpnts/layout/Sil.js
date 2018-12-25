@@ -15,7 +15,7 @@ const Sil = (props) => {
       </li>
       <li>
         <NavLink to="/" className="btn btn-floating pink lighten-1">
-          버턴
+          {props.profile.initials}
         </NavLink>
       </li>
     </ul>
