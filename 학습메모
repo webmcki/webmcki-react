@@ -9,3 +9,4 @@ yarn add react-redux-firebase redux-firestore
 버전에러나서 원본 package 참조 해서 인스톨
 리눅스에서 계속진행 2018년 12월 25일 오후 10시 14분
 30강 할 차례이고 회원가입 에러남
+yarn add moment

@@ -1,30 +1,33 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { firestoreConnect } from 'react-redux-firebase'
-import { compose } from 'redux'
-import { Redirect } from 'react-router-dom'
+import {connect} from 'react-redux'
+import {firestoreConnect} from 'react-redux-firebase'
+import {compose} from 'redux'
+import {Redirect} from 'react-router-dom'
+// import moment from 'moment'
 
 const Detail = (props) => {
   //const id = props.match.params.id
   //console.log(props)
-  const { project, auth } = props
-    if(!auth.uid) return <Redirect to='/signin'/>
+  const {project, auth} = props
+  if (!auth.uid) return <Redirect to="/signin" />
 
   if (project) {
     return (
-    <div className="container section project-details">
-      <div className="card z-depth-0">
-        <div className="card-content">
-          <span className="card-title">{ project.title }</span>
-          <p>{ project.content }</p>
+      <div className="container section project-details">
+        <div className="card z-depth-0">
+          <div className="card-content">
+            <span className="card-title">{project.title}</span>
+            <p>{project.content}</p>
+          </div>
+          <div className="card-action gret lighten-4 grey-text">
+            <div>
+              작성자: {project.authorFirstName} {project.authorLastName}
+            </div>
+            <div>작성날짜: 작성날짜수정해야함</div>
+          </div>
         </div>
-        <div className="card-action gret lighten-4 grey-text">
-          <div>작성자: { project.authorFirstName } { project.authorLastName }</div>
-          <div>2018 / 12 / 23</div>
-        </div>
-      </div>  
-    </div>
-  )
+      </div>
+    )
   } else {
     return (
       <div className="container center">
@@ -32,7 +35,6 @@ const Detail = (props) => {
       </div>
     )
   }
- 
 }
 
 const mapStateToProps = (state, ownProps) => {
@@ -48,11 +50,5 @@ const mapStateToProps = (state, ownProps) => {
 
 export default compose(
   connect(mapStateToProps),
-  firestoreConnect([
-    {collection: 'projects'}
-  ])
+  firestoreConnect([{collection: 'projects'}])
 )(Detail)
-
-
-
-
