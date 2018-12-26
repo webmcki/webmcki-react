@@ -3,7 +3,7 @@ const initState = {
 }
 
 const authReducer = (state = initState, action) => {
-  switch(action.type){
+  switch (action.type) {
     case 'LOGIN_ERROR':
       console.log('로그인 실패')
       return {
@@ -34,7 +34,7 @@ const authReducer = (state = initState, action) => {
       }
     default:
       return state
-  } 
+  }
 }
 
 export default authReducer

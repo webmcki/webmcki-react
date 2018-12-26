@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { createProject } from '../../store/actions/projectActions'
-import { Redirect } from 'react-router-dom'
+import React, {Component} from 'react'
+import {connect} from 'react-redux'
+import {createProject} from '../../store/actions/projectActions'
+import {Redirect} from 'react-router-dom'
 
 class Create extends Component {
   state = {
@@ -13,6 +13,7 @@ class Create extends Component {
     e.preventDefault()
     //console.log(this.state)
     this.props.createProject(this.state)
+    this.props.history.push('/')
   }
 
   handelChange = (e) => {
@@ -23,25 +24,30 @@ class Create extends Component {
 
   render() {
     const {auth} = this.props
-    if(!auth.uid) return <Redirect to='/signin'/>
+    if (!auth.uid) return <Redirect to="/signin" />
     return (
       <div className="container">
         <form onSubmit={this.handelSubmit} className="white">
           <h5 className="grey-text text-darken-3">새프로젝트</h5>
           <div className="input-field">
             <label htmlFor="title">타이틀</label>
-            <input type="text" id="title" onChange={this.handelChange}/>
+            <input type="text" id="title" onChange={this.handelChange} />
           </div>
           <div className="input-field">
             <label htmlFor="content">내용</label>
-            <textarea id="content" cols="30" rows="10" className="materialize-textarea" onChange={this.handelChange}></textarea>
+            <textarea
+              id="content"
+              cols="30"
+              rows="10"
+              className="materialize-textarea"
+              onChange={this.handelChange}
+            />
           </div>
           <div className="input-field">
             <button className="btn pink lighten-1 z-depth-0">추가</button>
           </div>
         </form>
       </div>
-      
     )
   }
 }
@@ -58,5 +64,7 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps) (Create)
-
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Create)
