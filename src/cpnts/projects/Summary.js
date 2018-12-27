@@ -1,5 +1,5 @@
 import React from 'react'
-// import moment from 'moment'
+//import moment from 'moment'
 
 const Summary = ({project}) => {
   return (
@@ -9,7 +9,7 @@ const Summary = ({project}) => {
         <p>
           {project.authorFirstName} {project.authorLastName} 님이 작성
         </p>
-        <p className="grey-text">작성날짜 수정요망</p>
+        <p className="grey-text">날짜수정</p>
       </div>
     </div>
   )

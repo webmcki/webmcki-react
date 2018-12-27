@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {firestoreConnect} from 'react-redux-firebase'
 import {compose} from 'redux'
 import {Redirect} from 'react-router-dom'
-// import moment from 'moment'
+import moment from 'moment'
 
 const Detail = (props) => {
   //const id = props.match.params.id
@@ -23,7 +23,7 @@ const Detail = (props) => {
             <div>
               작성자: {project.authorFirstName} {project.authorLastName}
             </div>
-            <div>작성날짜: 작성날짜수정해야함</div>
+            <div>{moment(project.createAt.toDate()).calendar()}</div>
           </div>
         </div>
       </div>
